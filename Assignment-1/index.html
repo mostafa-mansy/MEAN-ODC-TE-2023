@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cm{
+
+        }
+        .close {
+            display: flex;
+            padding: 12px 16px 12px 16px;
+        }
+        .close:hover {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form id="data-from-user" >
+        <label>UserName</label>
+        <input type="text" placeholder="UserName" name="UserName" value=""/>
+        <br/>
+        <label>Password</label>
+        <input type="password" placeholder="Password" name="Password" value=""/>
+        <br/>
+        <label>PhoneNumber</label>        
+        <input type="number" placeholder="PhoneNumber" name="PhoneNumber" value=""/>
+
+        <button>Submit</button>
+        <!-- <input type="hidden" id="counter" /> -->
+    </form>
+
+    <section id="display"  class="cm">
+
+    </section>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
