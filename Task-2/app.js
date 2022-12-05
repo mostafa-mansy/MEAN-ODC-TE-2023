@@ -2,10 +2,10 @@ const user = require("./modules/user.module")
 const yargs = require('yargs')
 yargs.command({
     command:"add",
-    builder:{
-/*         const fs = require("fs")
-        fs.writeFileSync("data.json", "argv") */
-    },
+/*    builder:{
+         const fs = require("fs")
+        fs.writeFileSync("data.json", "argv") 
+    },*/
 /*     builder: {
         fNum: {
             describe: 'First Number',
@@ -28,34 +28,34 @@ yargs.command({
 })
  yargs.command({
     command:"showAll",
-    handler: function(argv,id){
-        user.showAll(argv,id)
+    handler: function(argv){
+        user.showAll(argv)
     }
 })
-
-
-
 yargs.command({
     command:"showSingle",
     builder: { id: {demandOption: true }},
     
     handler: function(argv){
-        user.showSingle(argv,argv.id)
+        user.showSingle(argv.id)
 /*         console.log(argv.id);
  */    }
-})/*
+})
 yargs.command({
     command:"edit",
+    builder: { name: {demandOption: true }},
     handler: function(argv){
-        user.edit()
+
+        user.edit(argv.name)
     }
 })
 yargs.command({
     command:"del",
+    builder: { id: {demandOption: true }},
     handler: function(argv){
-        user.del()
+        user.del(argv.id)
     }
-}) */
+}) 
 yargs.argv
 
 

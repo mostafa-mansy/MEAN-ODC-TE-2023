@@ -6,6 +6,9 @@ heads = [
     {key:"status", default: false}]
 const deal = require("./deal.module")
 const fs = require("fs")
+const AllData = deal.readFromJson("data.json")
+const editJsonFile = require("edit-json-file")
+
 class User{
     static add(data){
         const user = {}
@@ -20,8 +23,8 @@ class User{
         deal.writeToJson(all)
     }
     static showAll(view){
-        view = deal.readFromJson("data.json")
-        console.log(view);
+        view = AllData
+        console.log(view)
 // run tamm
         /* console.log(require('../data.json')) */
 // run tamm
@@ -31,8 +34,8 @@ class User{
             console.log(student);
         }); */
     }
-    static showSingle(showdata,idnum){
-        showdata = deal.readFromJson("data.json")
+    static showSingle(idnum){
+       /* const showdata = deal.readFromJson("data.json") */
  /*        showdata.forEach(
             (idnum=showdata.id) ? console.log(showdata.id) : console.log("Not Found")
         ) */
@@ -48,14 +51,31 @@ class User{
             (idnum=showdata.id) ? console.log(showdata) : console.log("Not Found")
             
         })  */
-          showdata.find(
-            (el)=> (el.id===idnum)? console.log(el) : null
+        AllData.find(
+            (el)=> (el.id==idnum)? console.log(el) : null
           )
  
 
     }
-    static edit(){}
-    static del(){}
+    static edit(nameUser){
+/*         const newItem = {}
+        let file = editJsonFile(`../data.json`);
+       file.set("planet", "Earth");
+       file.save()
+       file = editJsonFile(`../data.json`, {autosave: true });
+        
+
+           AllData.push(file) */
+        AllData.forEach(
+            el => (el.name == nameUser)? null : el.name = nameUser
+        )
+
+    }
+    static del(id){
+/*         AllData.find(
+            (el)=> (el.id==id)? delete el : null
+          ) */
+    }
 }
 
 module.exports = User
