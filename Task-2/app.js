@@ -43,10 +43,10 @@ yargs.command({
 })
 yargs.command({
     command:"edit",
-    builder: { name: {demandOption: true }},
+/*     builder: { name: {demandOption: true }}, */
     handler: function(argv){
 
-        user.edit(argv.name)
+        user.edit(argv)
     }
 })
 yargs.command({

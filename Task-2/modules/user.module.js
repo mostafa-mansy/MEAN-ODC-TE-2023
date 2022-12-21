@@ -57,7 +57,7 @@ class User{
  
 
     }
-    static edit(nameUser){
+    static edit(data){
 /*         const newItem = {}
         let file = editJsonFile(`../data.json`);
        file.set("planet", "Earth");
@@ -66,15 +66,38 @@ class User{
         
 
            AllData.push(file) */
-        AllData.forEach(
+/*         AllData.forEach(
             el => (el.name == nameUser)? null : el.name = nameUser
-        )
-
+        ) */
+        const editobj = AllData.filter((el)=> (el.id==data.id) ) 
+        console.log(editobj[0].id)
+/*           if(data.id != editobj[0].id) null
+          if(data.name != editobj[0].name) console.log(data.name == editobj[0].name);
+          if(data.age != editobj[0].age) data.age == editobj[0].age */
+          const newObj ={
+            id: data.id,
+            name: data.name,
+            age: data.age,
+            email: data.email
+        }
+        console.log(newObj);
     }
     static del(id){
-/*         AllData.find(
-            (el)=> (el.id==id)? delete el : null
-          ) */
+        const delel = AllData.filter((el)=> (el.id!=id) ) 
+/*         function removeValue(value, index, arr) {
+            // If the value at the current array index matches the specified value (2)
+            if (value === 2) {
+            // Removes the value from the original array
+                arr.splice(index, 1);
+                return true;
+            }
+            return false;
+        }
+        const fun = (value,Data)=>{
+            data.f
+        } */
+        deal.writeToJson(delel)
+        console.log(delel)
     }
 }
 
