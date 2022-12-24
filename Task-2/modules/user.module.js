@@ -7,7 +7,8 @@ heads = [
 const deal = require("./deal.module")
 const fs = require("fs")
 const AllData = deal.readFromJson("data.json")
-const editJsonFile = require("edit-json-file")
+
+// const editJsonFile = require("edit-json-file")
 
 class User{
     static add(data){
@@ -69,18 +70,58 @@ class User{
 /*         AllData.forEach(
             el => (el.name == nameUser)? null : el.name = nameUser
         ) */
-        const editobj = AllData.filter((el)=> (el.id==data.id) ) 
-        console.log(editobj[0].id)
+        const editobj = AllData.filter(el => el.id == data.id ) 
+        /* console.log(editobj[0].id)
+        console.log(editobj) */
+
+         const eldelete = AllData.filter( el => el.id!=data.id ) 
+         deal.writeToJson(eldelete) 
+
+        // const objIndex = AllData.findIndex((obj => obj.id == data.id))
+        const newObj ={
+                        id: (data.id)?data.id:editobj[0].id,
+                        name: (data.name)?data.name:editobj[0].name,
+                        age: (data.age)?data.age:editobj[0].age,
+                        email: (data.email)?data.email:editobj[0].email,
+                        status: (data.status)?data.status:editobj[0].status
+                    } 
+         const al = deal.readFromJson()
+         al.push(newObj)
+         deal.writeToJson(al)  
+        // console.log (AllData[objIndex])
+                    // console.log(objIndex)
 /*           if(data.id != editobj[0].id) null
           if(data.name != editobj[0].name) console.log(data.name == editobj[0].name);
           if(data.age != editobj[0].age) data.age == editobj[0].age */
-          const newObj ={
-            id: data.id,
-            name: data.name,
-            age: data.age,
-            email: data.email
-        }
-        console.log(newObj);
+        //   console.log(editobj)
+        //   console.log(AllData)
+
+/*         const newObj =AllData.map((obj)=>{
+            if(obj.id!=data.id){
+                return {
+                    ...obj,
+
+                }
+            }
+
+          }) */
+/*         console.log(newObj)
+ */
+           
+/*             deal.writeToJson({...AllData,AllData[objIndex]: newObj})
+ */        
+
+/*             if(AllData.id == data.id) {
+
+                deal.readFromJson().push(AllData[objIndex]= newObj)
+            } */
+             // Step 1
+
+
+
+            
+        
+
     }
     static del(id){
         const delel = AllData.filter((el)=> (el.id!=id) ) 
